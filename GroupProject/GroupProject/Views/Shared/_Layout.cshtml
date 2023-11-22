@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/b656b34bb3.js"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet" />
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""></script>
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+    <link rel="stylesheet" href="~/Assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <title>Travel Website</title>
+
+</head>
+<body>
+    @RenderPage("Components/_NavBar.cshtml")
+
+    @RenderPage("Components/_SideNav.cshtml")
+
+    @RenderBody()
+    
+    @RenderPage("Components/_Footer.cshtml")
+
+    <script>document.addEventListener("DOMContentLoaded", function () {
+        var elems = document.querySelectorAll(".parallax");
+        var instances = M.Parallax.init(elems, {
+
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var elems = document.querySelectorAll(".autocomplete");
+        var instances = M.Autocomplete.init(elems, {
+          data: {
+            Australia: null,
+            China: null,
+            Switzerland: null,
+            Egypt: null,
+            Canada: null,
+            America: null,
+            Hawaii: null,
+            Japan: null,
+            India: null,
+            
+          },
+        });
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        var elems = document.querySelectorAll(".slider");
+        var instances = M.Slider.init(elems, {
+          indicators: false,
+          height: 600,
+          duration: 700,
+        });
+      });
+      M.AutoInit();</script>
+    @*<script src="~/Assets/js/component/Leaflet.searchMarker.js"></script>*@
+    @*<script src="~/Assets/js/map.js"></script>*@
+    <script src="~/Assets/js/sandbox.js"></script>
+</body>
+</html>

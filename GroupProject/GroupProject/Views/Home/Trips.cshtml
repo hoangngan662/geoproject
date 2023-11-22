@@ -1,0 +1,298 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- <div class="section grey darken-4 z-depth-2" style="height: 100px;"></div> -->
+
+<h2 class="center-align" id="trips">Trips</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="input-field col s12">
+            <i class="material-icons prefix">search</i>
+            <input type="text" id="autocomplete-input" class="autocomplete" autocomplete="off" />
+            <label for="autocomplete-input">Search Trips</label>
+        </div>
+    </div>
+</div>
+<div class="section auto">
+    <div id="mapid"></div>
+    <div class="section covered"></div>
+</div>
+<div class="section"></div>
+</div>
+<!-- <div class="parallax-container">
+        <div class="parallax"><img src="~/Assets/images/campfire.jpg" alt="donkey"></div>
+    </div>
+     -->
+
+<div class="container center-align">
+
+    <a href="#" class="btn large" id="goTOTOP"><i class="material-icons">keyboard_arrow_up</i> Back to top</a>
+</div>
+<div class="section"></div>
+<script>
+    const $ = (selector) => document.querySelector(selector)
+
+    L.Control.SearchMarker = L.Control.extend({
+        options: {
+            position: "topright",
+            title: {
+                false: "View SearchBar",
+                true: "Exit SearchBar",
+            },
+            markers: null,
+            isEpoch: false,
+            startTimeIdx: 0,
+            searchAttribute: 'name',
+            maxValue: -1,
+            minValue: 0,
+        },
+        initialize: function (options) {
+            L.Util.setOptions(this, options);
+            this._layer = this.options.layer;
+
+        },
+
+        onAdd: function (map) {
+            this.options.map = map;
+            const options = this.options;
+            this.options.markers = [];
+
+            var container = L.DomUtil.create(
+                "div",
+                "leaflet-control-searchBar leaflet-searchBar"
+            );
+            const icon = document.createElement('i', { class: 'material-icons prefix' });
+            icon.classList.add('material-icons')
+            icon.classList.add('prefix')
+            icon.textContent = 'search';
+            container.appendChild(icon)
+            this.link = L.DomUtil.create(
+                "a",
+                "leaflet-control-searchBar-button leaflet-searchbar-part",
+                container
+            );
+            this.searchMarker = L.DomUtil.create(
+                "input",
+                "leaflet-search-marker",
+                container
+            );
+            this.link.href = "#";
+            this._map = map;
+
+            if (this._layer) {
+                var index_temp = 0;
+                this._layer.eachLayer(function (layer) {
+                    options.markers[index_temp] = layer;
+                    ++index_temp;
+                });
+                options.maxValue = index_temp - 1;
+                this.options = options;
+            } else {
+                console.log("Error: You have to specify a layer via new SliderControl({layer: your_layer});");
+            }
+
+
+
+            L.DomEvent.on(this.searchMarker, "click", this._click, this);
+            L.DomEvent.on(this.searchMarker, "input", this._change, this);
+            return container;
+        },
+
+
+        changeValue: function (value) {
+            this.searchMarker.value = value;
+            this.searchChange({ target: { value: value } })
+        },
+
+
+        _click: function (e) {
+            L.DomEvent.stopPropagation(e);
+            L.DomEvent.preventDefault(e);
+            console.log('clicked');
+
+            //this._map.toggleFullscreen(this.options);
+        },
+        _change: function (e) {
+            L.DomEvent.stopPropagation(e);
+            L.DomEvent.preventDefault(e);
+            console.log('changed')
+            this.searchChange(e, this.options);
+            this._map._onSearchmarkerchange();
+        },
+
+
+        startSearch: function (e) {
+            _options = this.options;
+            for (i = _options.minValue; i <= _options.minValue; i++) {
+                _options.map.addLayer(_options.markers[i]);
+                console.log('added')
+            }
+        },
+
+        searchChange: function (e) {
+            _options = this.options;
+            var map = _options.map;
+            const value = e.target.value.toLowerCase();
+            var fg = L.featureGroup();
+            console.log(value)
+            var i;
+            // clear markers
+            for (i = _options.minValue; i <= _options.maxValue; i++) {
+                if (_options.markers[i]) map.removeLayer(_options.markers[i]);
+                console.log('removed a layer')
+            }
+            for (i = _options.minValue; i <= _options.maxValue; i++) {
+                if (_options.markers[i] && _options.markers[i].options[_options.searchAttribute].includes(value)) {
+                    map.addLayer(_options.markers[i]);
+                    fg.addLayer(_options.markers[i]);
+                }
+            }
+        }
+    });
+
+    L.Map.include({
+        isShowingSearchMark: function () {
+            return this._isShowingSearchMark || false;
+        },
+
+        toggleShowSearchMarker: function (options) {
+            var container = this.getContainer();
+            if (this.isShowingSearchMark) {
+                console.log('toggle is true')
+                this._showSearchBar(container)
+            } else {
+                console.log('toggle is true but closing')
+                this._hideSearchBar(container)
+
+            }
+        },
+        _showSearchBar: function (container) {
+            L.DomUtil.addClass(container, 'leaflet-show-search-markers');
+            this._setSearchMarker(true);
+        },
+        _hideSearchBar: function (container) {
+            L.DomUtil.removeClass(container, 'leaflet-show-search-markers');
+            this._setSearchMarker(false);
+        },
+
+
+        _setSearchMarker: function (showSearch) {
+            this._isShowingSearchMark = showSearch;
+            this.invalidateSize();
+        },
+
+        _onSearchmarkerchange: function () {
+            console.log('onSearchMarkerChange fired');
+            this.fire('searchMarkerChange');
+
+        },
+
+    });
+
+    L.control.SearchMarker = function (options) {
+        return new L.Control.SearchMarker(options);
+    };
+
+</script>
+<script>
+    var json = @Html.Raw(Json.Encode(ViewBag.json));
+    var listOfLocations = JSON.parse(json);
+    console.log(listOfLocations);
+    const mymap = L.map('mapid').setView([10.029520, 105.770934], 11);
+    const attribution =
+        `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors`
+    const tileUrl = `https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`
+    const tiles = L.tileLayer(tileUrl, { attribution })
+    tiles.addTo(mymap)
+
+    //mymap.addControl(new L.Control.SearchMarker({toggleFullscreen: true}));
+    mymap.addControl(new L.Control.Fullscreen({
+        fullscreenControl: {
+            pseudoFullscreen: true
+        }
+    }));
+
+
+
+    const markers = []
+
+    listOfLocations.forEach((location) => {
+        const length = markers.push(L.marker(location.cords, { name: location.keywords }).addTo(mymap));
+        const index = length - 1;
+        console.log(markers);
+        L.DomUtil.addClass(markers[index]._icon, 'fullscreenMarker');
+        const item = document.querySelector(location.tag);
+        if (item) {
+            var clone = item.cloneNode(true)
+            markers[index].bindPopup(clone, { maxWidth: 300, minWidth: 200, className: "fullscreenContent" });
+        }
+    })
+
+
+    listOfLocations.forEach((location) => {
+        let length = markers.push(L.marker(location.cords, { name: location.keywords }).addTo(mymap));
+        const index = length - 1;
+        L.DomUtil.addClass(markers[index]._icon, 'normalMarker');
+        markers[index].bindPopup(`${location.name}`, { closeButton: false });
+        markers[index].on('mouseover', function (e) {
+            this.openPopup();
+        });
+        markers[index].on('mouseout', function (e) {
+            this.closePopup();
+        });
+        markers[index].on('click', function (ev) {
+            const yOffset = -100;
+            const element = document.querySelector(location.tag);
+            const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y });
+        });
+    })
+
+
+    layerGroup = L.layerGroup(markers);
+    const searchController = new L.Control.SearchMarker({ layer: layerGroup });
+    mymap.addControl(searchController);
+    searchController.startSearch();
+
+    const fullscreenMarkers = document.querySelectorAll('.fullscreenMarker');
+    const minimizedMarkers = document.querySelectorAll('.normalMarker')
+
+    // // `fullscreenchange` Event that's fired when entering or exiting fullscreen.
+    mymap.on('fullscreenchange', function () {
+        if (mymap.isFullscreen()) {
+            fullscreenMarkers.forEach(el => el.style.display = 'block');
+            minimizedMarkers.forEach(el => el.style.display = 'none');
+            mymap.setView([30, mymap.getCenter().lng], 2)
+            console.log('fullscreen')
+        } else {
+            fullscreenMarkers.forEach(el => el.style.display = 'none');
+            minimizedMarkers.forEach(el => el.style.display = 'block');
+            mymap.closePopup();
+            mymap.setView([30, mymap.getCenter().lng], 0)
+            console.log('minimized')
+        }
+    });
+    mymap.on('popupopen', () => {
+        M.AutoInit();
+    })
+
+    mymap.on('drag', () => {
+        let { lng } = mymap.getCenter();
+        let x = Math.trunc(lng);
+        markers.forEach((marker) => {
+            const { lat: markerLat, lng: markerLng } = marker.getLatLng();
+            if (x - markerLng > 180) {
+                var newLatLng = new L.LatLng(markerLat, markerLng + 360);
+                marker.setLatLng(newLatLng);
+            } else if (lng - markerLng < -180) {
+                var newLatLng = new L.LatLng(markerLat, markerLng - 360);
+                marker.setLatLng(newLatLng);
+            }
+        })
+    })
+</script>

@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{53376610-6BBE-4F66-9053-FDF57D22E27C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GroupProject</RootNamespace>
+    <AssemblyName>GroupProject</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44312</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Code\SessionHelper.cs" />
+    <Compile Include="Code\UserSession.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Database.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PlaceModel.cs" />
+    <Compile Include="Place.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Post.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\css\styles.css" />
+    <Content Include="Assets\images\1024x768\australia.jpg" />
+    <Content Include="Assets\images\1024x768\beach.jpg" />
+    <Content Include="Assets\images\1024x768\beachView2.jpg" />
+    <Content Include="Assets\images\1024x768\camel.jpg" />
+    <Content Include="Assets\images\1024x768\campfire.jpg" />
+    <Content Include="Assets\images\1024x768\canadaMountain.jpg" />
+    <Content Include="Assets\images\1024x768\cape-town.jpg" />
+    <Content Include="Assets\images\1024x768\Chinabuilding.jpg" />
+    <Content Include="Assets\images\1024x768\donkey.jpg" />
+    <Content Include="Assets\images\1024x768\greatWall.jpg" />
+    <Content Include="Assets\images\1024x768\hikeMountain.jpg" />
+    <Content Include="Assets\images\1024x768\manWithLake.jpg" />
+    <Content Include="Assets\images\1024x768\matterhorn.jpg" />
+    <Content Include="Assets\images\1024x768\mtfuji.jpg" />
+    <Content Include="Assets\images\1024x768\panda.jpg" />
+    <Content Include="Assets\images\1024x768\shanghai.jpg" />
+    <Content Include="Assets\images\1024x768\tokyo.jpg" />
+    <Content Include="Assets\images\1024x768\tower.jpg" />
+    <Content Include="Assets\images\1024x768\tradBuilding.jpg" />
+    <Content Include="Assets\images\1024x768\venice.jpg" />
+    <Content Include="Assets\images\1024x768\viewOutTent.jpg" />
+    <Content Include="Assets\images\1280x1024\australia.jpg" />
+    <Content Include="Assets\images\1280x1024\beach.jpg" />
+    <Content Include="Assets\images\1280x1024\beachView2.jpg" />
+    <Content Include="Assets\images\1280x1024\camel.jpg" />
+    <Content Include="Assets\images\1280x1024\campfire.jpg" />
+    <Content Include="Assets\images\1280x1024\canadaMountain.jpg" />
+    <Content Include="Assets\images\1280x1024\cape-town.jpg" />
+    <Content Include="Assets\images\1280x1024\Chinabuilding.jpg" />
+    <Content Include="Assets\images\1280x1024\donkey.jpg" />
+    <Content Include="Assets\images\1280x1024\greatWall.jpg" />
+    <Content Include="Assets\images\1280x1024\hikeMountain.jpg" />
+    <Content Include="Assets\images\1280x1024\manWithLake.jpg" />
+    <Content Include="Assets\images\1280x1024\matterhorn.jpg" />
+    <Content Include="Assets\images\1280x1024\mtfuji.jpg" />
+    <Content Include="Assets\images\1280x1024\panda.jpg" />
+    <Content Include="Assets\images\1280x1024\shanghai.jpg" />
+    <Content Include="Assets\images\1280x1024\tentAndStars.jpg" />
+    <Content Include="Assets\images\1280x1024\tokyo.jpg" />
+    <Content Include="Assets\images\1280x1024\tower.jpg" />
+    <Content Include="Assets\images\1280x1024\tradBuilding.jpg" />
+    <Content Include="Assets\images\1280x1024\venice.jpg" />
+    <Content Include="Assets\images\1280x1024\viewOutTent.jpg" />
+    <Content Include="Assets\images\360x200\australia.jpg" />
+    <Content Include="Assets\images\360x200\beach.jpg" />
+    <Content Include="Assets\images\360x200\beachView2.jpg" />
+    <Content Include="Assets\images\360x200\camel.jpg" />
+    <Content Include="Assets\images\360x200\campfire.jpg" />
+    <Content Include="Assets\images\360x200\canadaMountain.jpg" />
+    <Content Include="Assets\images\360x200\cape-town.jpg" />
+    <Content Include="Assets\images\360x200\Chinabuilding.jpg" />
+    <Content Include="Assets\images\360x200\donkey.jpg" />
+    <Content Include="Assets\images\360x200\greatWall.jpg" />
+    <Content Include="Assets\images\360x200\hikeMountain.jpg" />
+    <Content Include="Assets\images\360x200\matterhorn.jpg" />
+    <Content Include="Assets\images\360x200\mtfuji.jpg" />
+    <Content Include="Assets\images\360x200\shanghai.jpg" />
+    <Content Include="Assets\images\360x200\tower.jpg" />
+    <Content Include="Assets\images\360x200\tradBuilding.jpg" />
+    <Content Include="Assets\images\360x200\venice.jpg" />
+    <Content Include="Assets\images\360x740\australia.jpg" />
+    <Content Include="Assets\images\360x740\beach.jpg" />
+    <Content Include="Assets\images\360x740\beachView2.jpg" />
+    <Content Include="Assets\images\360x740\camel.jpg" />
+    <Content Include="Assets\images\360x740\campfire.jpg" />
+    <Content Include="Assets\images\360x740\canadaMountain.jpg" />
+    <Content Include="Assets\images\360x740\cape-town.jpg" />
+    <Content Include="Assets\images\360x740\Chinabuilding.jpg" />
+    <Content Include="Assets\images\360x740\donkey.jpg" />
+    <Content Include="Assets\images\360x740\greatWall.jpg" />
+    <Content Include="Assets\images\360x740\hikeMountain.jpg" />
+    <Content Include="Assets\images\360x740\manWithLake.jpg" />
+    <Content Include="Assets\images\360x740\matterhorn.jpg" />
+    <Content Include="Assets\images\360x740\mtfuji.jpg" />
+    <Content Include="Assets\images\360x740\shanghai.jpg" />
+    <Content Include="Assets\images\360x740\tokyo.jpg" />
+    <Content Include="Assets\images\360x740\tower.jpg" />
+    <Content Include="Assets\images\360x740\tradBuilding.jpg" />
+    <Content Include="Assets\images\360x740\venice.jpg" />
+    <Content Include="Assets\images\asia\Chinabuilding.jpg" />
+    <Content Include="Assets\images\asia\greatWall.jpg" />
+    <Content Include="Assets\images\asia\mtfuji.jpg" />
+    <Content Include="Assets\images\asia\panda.jpg" />
+    <Content Include="Assets\images\asia\shanghai.jpg" />
+    <Content Include="Assets\images\asia\tokyo.jpg" />
+    <Content Include="Assets\images\asia\tower.jpg" />
+    <Content Include="Assets\images\asia\tradBuilding.jpg" />
+    <Content Include="Assets\images\balang.jpg" />
+    <Content Include="Assets\images\banglang.jpg" />
+    <Content Include="Assets\images\baogiatrang.jpg" />
+    <Content Include="Assets\images\conau.jpg" />
+    <Content Include="Assets\images\conson.jpg" />
+    <Content Include="Assets\images\fullSizeImages\australia.jpg" />
+    <Content Include="Assets\images\fullSizeImages\beach.jpg" />
+    <Content Include="Assets\images\fullSizeImages\beachView2.jpg" />
+    <Content Include="Assets\images\fullSizeImages\camel.jpg" />
+    <Content Include="Assets\images\fullSizeImages\campfire.jpg" />
+    <Content Include="Assets\images\fullSizeImages\canadaMountain.jpg" />
+    <Content Include="Assets\images\fullSizeImages\cape-town.jpg" />
+    <Content Include="Assets\images\fullSizeImages\Chinabuilding.jpg" />
+    <Content Include="Assets\images\fullSizeImages\donkey.jpg" />
+    <Content Include="Assets\images\fullSizeImages\greatWall.jpg" />
+    <Content Include="Assets\images\fullSizeImages\hikeMountain.jpg" />
+    <Content Include="Assets\images\fullSizeImages\manWithLake.jpg" />
+    <Content Include="Assets\images\fullSizeImages\matterhorn.jpg" />
+    <Content Include="Assets\images\fullSizeImages\mtfuji.jpg" />
+    <Content Include="Assets\images\fullSizeImages\panda.jpg" />
+    <Content Include="Assets\images\fullSizeImages\shanghai.jpg" />
+    <Content Include="Assets\images\fullSizeImages\tokyo.jpg" />
+    <Content Include="Assets\images\fullSizeImages\tower.jpg" />
+    <Content Include="Assets\images\fullSizeImages\tradBuilding.jpg" />
+    <Content Include="Assets\images\fullSizeImages\venice.jpg" />
+    <Content Include="Assets\images\fullSizeImages\viewOutTent.jpg" />
+    <Content Include="Assets\images\headers\beach.jpg" />
+    <Content Include="Assets\images\headers\camel.jpg" />
+    <Content Include="Assets\images\headers\campfire.jpg" />
+    <Content Include="Assets\images\headers\canadaMountain.jpg" />
+    <Content Include="Assets\images\headers\manWithLake.jpg" />
+    <Content Include="Assets\images\headers\mtfuji.jpg" />
+    <Content Include="Assets\images\headers\tokyo.jpg" />
+    <Content Include="Assets\images\headers\tradBuilding.jpg" />
+    <Content Include="Assets\images\hoasu.jpg" />
+    <Content Include="Assets\images\ongde.jpg" />
+    <Content Include="Assets\images\phiyen.jpg" />
+    <Content Include="Assets\images\thienvien.jpg" />
+    <Content Include="Assets\images\xeonhum.jpg" />
+    <Content Include="Assets\js\component\Leaflet.searchMarker.js" />
+    <Content Include="Assets\js\jquery.min.js" />
+    <Content Include="Assets\js\map.js" />
+    <Content Include="Assets\js\sandbox.js" />
+    <Content Include="Assets\js\templatemo-script.js" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Database.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Database.edmx</DependentUpon>
+      <LastGenOutput>Database.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Database.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Database.edmx</DependentUpon>
+      <LastGenOutput>Database.cs</LastGenOutput>
+    </Content>
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Assets\images\Compressed\Chinabuilding.avif" />
+    <Content Include="Assets\images\Compressed\greatWall.avif" />
+    <Content Include="Assets\images\Compressed\mtfuji.avif" />
+    <Content Include="Assets\images\Compressed\panda.avif" />
+    <Content Include="Assets\images\Compressed\shanghai.avif" />
+    <Content Include="Assets\images\Compressed\tokyo.avif" />
+    <Content Include="Assets\images\Compressed\tower.avif" />
+    <Content Include="Assets\images\Compressed\tradBuilding.avif" />
+    <EntityDeploy Include="Database.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Database.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Database.edmx.diagram">
+      <DependentUpon>Database.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="vendor\css\flex-slider.css" />
+    <Content Include="vendor\css\fontawesome.css" />
+    <Content Include="vendor\css\owl.css" />
+    <Content Include="vendor\css\templatemo-stand-blog.css" />
+    <Content Include="vendor\fonts\flexslider-icon.svg" />
+    <Content Include="vendor\fonts\fontawesome-webfont.svg" />
+    <Content Include="vendor\fonts\slick.svg" />
+    <Content Include="vendor\images\about-us.jpg" />
+    <Content Include="vendor\images\banner-item-01.jpg" />
+    <Content Include="vendor\images\banner-item-02.jpg" />
+    <Content Include="vendor\images\banner-item-03.jpg" />
+    <Content Include="vendor\images\banner-item-04.jpg" />
+    <Content Include="vendor\images\banner-item-05.jpg" />
+    <Content Include="vendor\images\banner-item-06.jpg" />
+    <Content Include="vendor\images\blog-post-01.jpg" />
+    <Content Include="vendor\images\blog-post-02.jpg" />
+    <Content Include="vendor\images\blog-post-03.jpg" />
+    <Content Include="vendor\images\blog-thumb-01.jpg" />
+    <Content Include="vendor\images\blog-thumb-02.jpg" />
+    <Content Include="vendor\images\blog-thumb-03.jpg" />
+    <Content Include="vendor\images\blog-thumb-04.jpg" />
+    <Content Include="vendor\images\blog-thumb-05.jpg" />
+    <Content Include="vendor\images\blog-thumb-06.jpg" />
+    <Content Include="vendor\images\comment-author-01.jpg" />
+    <Content Include="vendor\images\comment-author-02.jpg" />
+    <Content Include="vendor\images\comment-author-03.jpg" />
+    <Content Include="vendor\images\cta-bg.jpg" />
+    <Content Include="vendor\images\heading-bg.jpg" />
+    <Content Include="vendor\jquery\jquery.min.js" />
+    <Content Include="vendor\js\accordions.js" />
+    <Content Include="vendor\js\custom.js" />
+    <Content Include="vendor\js\isotope.js" />
+    <Content Include="vendor\js\owl.js" />
+    <Content Include="vendor\js\slick.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Components\_NavBar.cshtml" />
+    <Content Include="Views\Shared\Components\_SideNav.cshtml" />
+    <Content Include="Views\Shared\Components\_Footer.cshtml" />
+    <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Home\Trips.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\CrPost.cshtml" />
+    <Content Include="Views\Home\Post.cshtml" />
+    <Content Include="vendor\fonts\Flaticon.woff" />
+    <Content Include="vendor\fonts\flexslider-icon.eot" />
+    <Content Include="vendor\fonts\flexslider-icon.ttf" />
+    <Content Include="vendor\fonts\flexslider-icon.woff" />
+    <Content Include="vendor\fonts\fontawesome-webfont.eot" />
+    <Content Include="vendor\fonts\fontawesome-webfont.ttf" />
+    <Content Include="vendor\fonts\fontawesome-webfont.woff" />
+    <Content Include="vendor\fonts\fontawesome-webfont.woff2" />
+    <Content Include="vendor\fonts\FontAwesome.otf" />
+    <Content Include="vendor\fonts\slick.eot" />
+    <Content Include="vendor\fonts\slick.ttf" />
+    <Content Include="vendor\fonts\slick.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>63547</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44312/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

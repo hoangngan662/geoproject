@@ -1,0 +1,272 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="slider">
+    <ul class="slides">
+        <li>
+            <picture loading="lazy">
+
+                <source media="(max-width:1280px)" srcset="~/Assets/images/1280x1024/manWithLake.jpg">
+                <source media="(min-width:1024px)" srcset="~/Assets/images/1024x768/manWithLake.jpg">
+                <source media="(min-width:360px)" srcset="~/Assets/images/360x740/manWithLake.jpg">
+                <img src="~/Assets/images/headers/manWithLake.jpg" width="100%" height="100%" alt="man staring at lake" />
+            </picture>
+
+            <div class="caption center-align">
+                <div class="card black slightOpacityBack lighten-3 autoWidthCard center-align padding">
+                    <h2 class="light white-text text-lighten-3">Travel Site</h2>
+
+                </div>
+            </div>
+        </li>
+        <li>
+            <picture loading="lazy">
+
+                <source media="(min-width:1280px)" srcset="~/Assets/images/1280x1024/tokyo.jpg">
+                <source media="(max-width:1024px)" srcset="~/Assets/images/1024x768/tokyo.jpg">
+                <source media="(max-width:360px)" srcset="~/Assets/images/360x740/tokyo.jpg">
+                <img src="~/Assets/images/headers/tokyo.jpg" width="100%" height="100%" alt="tokyo" />
+            </picture>
+
+            <div class="caption center-align">
+                <div class="card black slightOpacityBack lighten-3 autoWidthCard center-align padding">
+                    <h3>Take Your Dream Vacation</h3>
+
+                </div>
+            </div>
+        </li>
+        <li>
+            <picture loading="lazy">
+                <source media="(max-width:1280px)" srcset="~/Assets/images/1280x1024/camel.jpg">
+                <source media="(min-width:1024px)" srcset="~/Assets/images/1024x768/camel.jpg">
+                <source media="(min-width:360px)" srcset="~/Assets/images/360x740/camel.jpg">
+                <img src="~/Assets/images/headers/camel.jpg" width="100%" height="100%" alt="camel" />
+            </picture>
+
+            <div class="white-text text-lighten-2 caption right-align">
+                <div class="card black slightOpacityBack lighten-3 autoWidthCard center-align padding">
+                    <h3>Expert local guides</h3>
+                    <h5 class="light grey-text text-lighten-3">
+                        Chosen for great knowledge of their country, and a passion to
+                        make your trip extraordinary.
+                    </h5>
+                </div>
+            </div>
+        </li>
+        <li>
+            <picture>
+                <source media="(min-width:1280px)" srcset="~/Assets/images/1280x1024/beach.jpg">
+                <source media="(min-width:1024px)" srcset="~/Assets/images/1024x768/beach.jpg">
+                <source media="(max-width:360px)" srcset="~/Assets/images/360x740/beach.jpg">
+                <img src="~/Assets/images/headers/beach.jpg" loading="lazy" width="100%" height="100%" alt="beach" />
+            </picture>
+            <div class="white-text caption center-align">
+                <div class="card black slightOpacityBack lighten-3 autoWidthCard center-align padding">
+                    <h3>Take a break</h3>
+                    <h5 class="light grey-text text-lighten-3">You deserve it</h5>
+                </div>
+            </div>
+        </li>
+        <li>
+            <picture>
+                <source media="(min-width:1280px)" srcset="~/Assets/images/1280x1024/campfire.jpg">
+                <source media="(min-width:1024px)" srcset="~/Assets/images/1024x768/campfire.jpg">
+                <source media="(min-width:360px)" srcset="~/Assets/images/360x740/campfire.jpg">
+                <img src="~/Assets/images/headers/campfire.jpg" loading="lazy" width="100%" height="100%" alt="campfire" />
+            </picture>
+
+            <div class="black-text text-lighten-2 caption center-align">
+                <div class="card black slightOpacityBack lighten-3 autoWidthCard center-align padding">
+                    <h3 class="white-text">Where will your next tour take you?</h3>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- <div class="section grey darken-4 z-depth-2" style="height: 100px;"></div> -->
+
+<div class="section"></div>
+<div class="container">
+    <div class="row">
+        <div class="col s12 l6">
+            <div class="col s6 m4 box coverBox">
+                <h3>Places to go</h3>
+            </div>
+            <div class="col s6 m4 box coverBox">
+                <div onclick="clicker(4)"
+                     class="section black coverText valign-wrapper place">
+                    <p class="white-text center-align">Australia</p>
+                </div>
+                <img class="grid" src="~/Assets/images/360x200/australia.jpg" alt="australia uluru" width="100%" height="100%" />
+            </div>
+            <div class="col s6 m4 box coverBox">
+                <div onclick="clicker(3)"
+                     class="section black coverText valign-wrapper place">
+                    <p class="white-text center-align location">Hawaii</p>
+                </div>
+                <img class="grid" src="~/Assets/images/360x200/beach.jpg" alt="hawaii beach" width="100%" height="100%" />
+            </div>
+
+            <div class="col s6 m4 box lighten-3 coverBox">
+                <div onclick="clicker(7)"
+                     class="section black coverText valign-wrapper location place">
+                    <p class="white-text center-align">Italy</p>
+                </div>
+                <img class="grid" src="~/Assets/images/360x200/venice.jpg" alt="venice" width="100%" height="100%" />
+            </div>
+            <div class="col s6 m4 box coverBox">
+                <div onclick="clicker(6)"
+                     class="section black coverText valign-wrapper location place">
+                    <p class="white-text center-align">Egypt</p>
+                </div>
+
+                <img class="grid" src="~/Assets/images/360x200/camel.jpg" alt="camel ride" width="100%" height="100%" />
+            </div>
+            <div class="col s6 m4 box coverBox">
+                <div onclick="clicker(5)"
+                     class="section black coverText valign-wrapper location place">
+                    <p class="white-text center-align">China</p>
+                </div>
+                <img class="grid" src="~/Assets/images/360x200/greatWall.jpg" alt="great wall of china" width="100%" height="100%" />
+            </div>
+        </div>
+        <div class="col m6 hide-on-med-and-down">
+            <div class="s12 col map" style="margin-top: 17px; height: 29.063em">
+                <picture>
+                    <source media="(min-width:1000px)" srcset="~/Assets/images/1024x768/donkey.jpg">
+                    <source media="(min-width:360px)" srcset="~/Assets/images/360x740/donkey.jpg">
+                    <img class="grid materialboxed"
+                         style="height: 29.063em;"
+                         src="~/Assets/images/1024x768/donkey.jpg"
+                         alt="donkey"
+                         width="100%" />
+                </picture>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col s12 m10 input-field white-text push-2">
+            <select name="" id="inputLocation" class="" required>
+                <option value="" disabled selected class="">Choose a place</option>
+                <option value="Switzerland">Switzerland</option>
+                <option value="Hawaii">Hawaii</option>
+                <option value="Australia">Australia</option>
+                <option value="China">China</option>
+                <option value="Egypt">Egypt</option>
+
+                <option value="Italy">Italy</option>
+            </select>
+        </div>
+
+        <div class="col s12 m2">
+            <button class="btn-large red white-text large waves-effect waves-light center-align"
+                    onclick="send()"
+                    name="action">
+                Search Trip
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="section"></div>
+<div class="parallax-container">
+    <div class="parallax">
+        <picture>
+
+            <source media="(min-width:1280px)" srcset="~/Assets/images/1280x1024/hikeMountain.jpg">
+            <source media="(min-width:500px)" srcset="~/Assets/images/1024x768/hikeMountain.jpg">
+            <source media="(min-width:360px)" srcset="~/Assets/images/360x740/hikeMountain.jpg">
+            <img src="~/Assets/images/fullSizeImages/hikeMountain.jpg" loading="lazy" width="100%" alt="people hiking" />
+        </picture>
+
+    </div>
+</div>
+
+<!-- <div class="parallax-container">
+        <div class="parallax"><img src="~/Assets/images/campfire.jpg" alt="donkey"></div>
+    </div>
+     -->
+<div class="container">
+    <div class="row">
+        @foreach (var item in ViewBag.model)
+        {
+            <div class="col s12 l4 holiday">
+                <div class="card large" id="switzerlandTrip">
+                    <div class="card-image">
+                        <picture class="materialboxed cover">
+                            @{ 
+                                var img = "/Assets/images/" + item.image.ToString();
+                            }
+                            <source media="(max-width:360px)" srcset=@img>
+                            <img src=@img alt="matterhorn" width="100%" height="100%" />
+                        </picture>
+
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title holidayName"> @item.name </span>
+                        <p class="country">Switzerland</p>
+                        <i class="material-icons text-yellow text-darken-2 star">star</i><i class="material-icons star">star</i><i class="material-icons star">star</i><i class="material-icons star">star</i><i class="material-icons star">star_outline</i>
+
+                        <p>Number of days: 10</p>
+                        <p>from: £1000</p>
+                        <div class="card-action">
+                            @*<a href="#!" class="btn white-text red wave-effect waves-light">Book Now</a>*@
+                            <a href="#!@*@Url.Action("Trips", "Home",new {id=item.id})*@" class="btn white brown-text wave-effect waves-red">More Info</a>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+
+        }
+        </div>
+</div>
+<div class="container center-align">
+
+    <a href="#" class="btn large" id="goTOTOP"><i class="material-icons">keyboard_arrow_up</i> Back to top</a>
+</div>
+<div class="section"></div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var elems = document.querySelectorAll(".parallax");
+        var instances = M.Parallax.init(elems, {
+
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var elems = document.querySelectorAll(".autocomplete");
+        var instances = M.Autocomplete.init(elems, {
+            data: {
+                Australia: null,
+                China: null,
+                Switzerland: null,
+                Egypt: null,
+                Canada: null,
+                America: null,
+                Hawaii: null,
+                Japan: null,
+                India: null,
+
+            },
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        var elems = document.querySelectorAll(".slider");
+        var instances = M.Slider.init(elems, {
+            indicators: false,
+            height: 600,
+            duration: 700,
+        });
+    });
+    M.AutoInit();</script>

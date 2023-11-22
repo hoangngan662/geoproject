@@ -1,0 +1,16 @@
+﻿<ul class="sidenav" id="mobile-links">
+    <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+    <li><a href="@Url.Action("Post", "Home")">Home</a></li>
+    <li><a href="@Url.Action("About", "Home")">About</a></li>
+    <li><a href="@Url.Action("Trips", "Home")">Trips</a></li>
+    @if (Session["UserSession"] != null)
+    {
+        <li>
+            <a href="@Url.Action("Logout", "Home")"><i class="fas fa-power-off fa-sm"></i></a>
+        </li>
+    }
+    else
+    {
+        <li><a href="@Url.Action("Login", "Home")">Login</a></li>
+    }
+</ul>
